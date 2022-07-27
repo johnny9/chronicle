@@ -158,24 +158,11 @@ class SettingsViewModel(
                 PreferenceType.TITLE,
                 FormattableString.from(R.string.settings_premium_upgrade_label)
             ),
-            if (prefsRepo.isPremium) {
-                PreferenceModel(
-                    type = PreferenceType.CLICKABLE,
-                    title = FormattableString.from(R.string.settings_premium_unlocked_title),
-                    explanation = FormattableString.from(R.string.settings_premium_unlocked_explanation)
-                )
-            } else {
-                PreferenceModel(
-                    type = PreferenceType.CLICKABLE,
-                    title = FormattableString.from(R.string.settings_premium_upgrade_label),
-                    explanation = FormattableString.from(R.string.settings_premium_upgrade_explanation),
-                    click = object : PreferenceClick {
-                        override fun onClick() {
-                            startUpgradeToPremiumFlow()
-                        }
-                    }
-                )
-            },
+            PreferenceModel(
+                type = PreferenceType.CLICKABLE,
+                title = FormattableString.from(R.string.settings_premium_unlocked_title),
+                explanation = FormattableString.from(R.string.settings_premium_unlocked_explanation)
+            ),
             PreferenceModel(
                 PreferenceType.TITLE,
                 FormattableString.from(R.string.settings_category_appearance)
